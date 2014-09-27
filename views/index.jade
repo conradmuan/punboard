@@ -10,11 +10,18 @@ block content
             - var img = person.author.profile_image_url.replace(/_normal\./, '_bigger.')
             .img-container
               img.profile-img(src="#{img}", alt="#{person.author.screen_name}")
-              .clownscore
+              .pun-star.clownscore
                 span #{person.stats.clown}
             .pun-stats
-              p 
-                span.pun-star
-                    span.pun puns: #{person.stats.puns}
-                | groans: #{person.stats.groan}, trombones: #{person.stats.trombone}
-    audio#faffel(src="assets/faffel.m4a")
+              .punner 
+                h1 @#{person.author.screen_name}:
+              .puns
+                span #{person.stats.puns}
+                h1 puns
+              .groans
+                span #{person.stats.groan}
+                h1 #groan
+              .trombones
+                span #{person.stats.trombone}
+                h1 #sadtrombone
+  audio#faffel(src="assets/faffel.m4a")

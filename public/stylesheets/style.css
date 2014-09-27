@@ -10,13 +10,15 @@
 .clearfix:after {
   clear: both;
 }
+body {
+  background: #efefef;
+}
 .container {
   width: 730px;
 }
 .tweets {
   zoom: 1;
-  border: 1px solid #ccc;
-  border-radius: 5px;
+  border-bottom: 1px solid #ccc;
   padding: 10px;
   margin-bottom: 15px;
 }
@@ -39,76 +41,125 @@
   width: 100%;
   height: 100%;
 }
-.tweets .img-container .clownscore {
-  padding: 5px;
-  background: #DB7B7B;
-  /* Old browsers */
-  background: -moz-linear-gradient(45deg, #db7b7b 0%, #992020 100%);
-  /* FF3.6+ */
-  background: -webkit-gradient(linear, left bottom, right top, color-stop(0%, #db7b7b), color-stop(100%, #992020));
-  /* Chrome,Safari4+ */
-  background: -webkit-linear-gradient(45deg, #db7b7b 0%, #992020 100%);
-  /* Chrome10+,Safari5.1+ */
-  background: -o-linear-gradient(45deg, #db7b7b 0%, #992020 100%);
-  /* Opera 11.10+ */
-  background: -ms-linear-gradient(45deg, #db7b7b 0%, #992020 100%);
-  /* IE10+ */
-  background: linear-gradient(45deg, #db7b7b 0%, #992020 100%);
-  /* W3C */
-  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#DB7B7B', endColorstr='#992020', GradientType=1);
-  /* IE6-9 fallback on horizontal gradient */
-  position: absolute;
-  bottom: -5px;
-  right: -5px;
-  border: 1px solid #fff;
-  color: #fff;
-  width: 30px;
-  height: 30px;
+.tweet {
+  zoom: 1;
+}
+.tweet:before,
+.tweet:after {
+  content: "";
+  display: table;
+}
+.tweet:after {
+  clear: both;
+}
+.pun-stats {
+  zoom: 1;
+  float: left;
   text-align: center;
-  border-radius: 50% 50%;
+  color: #333;
+  text-shadow: #fff 1px 1px 1px;
+}
+.pun-stats:before,
+.pun-stats:after {
+  content: "";
+  display: table;
+}
+.pun-stats:after {
+  clear: both;
+}
+.pun-stats .punner,
+.pun-stats .puns,
+.pun-stats .groans,
+.pun-stats .trombones {
+  text-align: center;
+  padding: 0 10px;
+  display: inline-block;
+  margin-right: 20px;
+}
+.pun-stats .punner h1,
+.pun-stats .puns h1,
+.pun-stats .groans h1,
+.pun-stats .trombones h1 {
+  font-size: 15px;
+  margin: 0;
+}
+.pun-stats .punner span,
+.pun-stats .puns span,
+.pun-stats .groans span,
+.pun-stats .trombones span {
+  font-size: 45px;
+}
+.pun-stats .punner {
+  width: 200px;
+}
+.pun-stats .punner h1 {
+  position: relative;
+  top: -35px;
+  font-size: 20px;
+  text-align: left;
+}
+.pun-stats .groans h1 {
+  color: #44BF87;
+}
+.pun-stats .groans span {
+  color: #44BF87;
+}
+.pun-stats .trombones {
+  margin-right: 0;
+}
+.pun-stats .trombones h1 {
+  color: #A12915;
+}
+.pun-stats .trombones span {
+  color: #A12915;
+}
+.pun-star {
+  display: block;
+  background: #A12915;
+  width: 25px;
+  height: 25px;
+  position: absolute;
+  right: 0;
+  bottom: -3px;
+  text-align: center;
+  -webkit-transform: rotate(20deg);
+  -moz-transform: rotate(20deg);
+  -ms-transform: rotate(20deg);
+  -o-transform: rotate(20eg);
   -webkit-transition: all 100ms ease-in;
   -moz-transition: all 100ms ease-in;
   -ms-transition: all 100ms ease-in;
   -o-transition: all 100ms ease-in;
   transition: all 100ms ease-in;
 }
-.tweets .img-container .clownscore:hover {
+.pun-star:hover {
   -moz-transform: scale(1.1);
   -webkit-transform: scale(1.1);
   -o-transform: scale(1.1);
   -ms-transform: scale(1.1);
   transform: scale(1.1);
 }
-.tweets .pun-stats {
-  float: left;
-}
-.tweets .pun {
+.pun-star span {
+  left: 0;
+  top: 3px;
+  width: 25px;
   position: absolute;
+  text-align: center;
+  display: block;
+  color: #fff;
   -webkit-transform: rotate(-20deg);
   -moz-transform: rotate(-20deg);
   -ms-transform: rotate(-20deg);
   -o-transform: rotate(-20eg);
-}
-.pun-star {
-  display: block;
-  background: red;
-  width: 30px;
-  height: 30px;
-  position: relative;
-  text-align: center;
-  -webkit-transform: rotate(20deg);
-  -moz-transform: rotate(20deg);
-  -ms-transform: rotate(20deg);
-  -o-transform: rotate(20eg);
 }
 .pun-star:before {
   content: "";
   position: absolute;
   top: 0;
   left: 0;
-  height: 30px;
-  width: 30px;
-  background: red;
+  height: 25px;
+  width: 25px;
+  background: #A12915;
   -webkit-transform: rotate(135deg);
   -moz-transform: rotate(135deg);
   -ms-transform: rotate(135deg);
