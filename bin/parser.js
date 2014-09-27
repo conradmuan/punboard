@@ -126,7 +126,7 @@ console.log('tracking: ', words.join(', '));
 twit.stream('statuses/filter', { track: words.join(',') }, function(stream) {
     stream.on('data', function (data) {
         parseTweet(data, function (err, pun) {
-            console.error(err);
+            if (err) return console.error(err);
             console.log('parsed: ', pun.tweet.id_str);
         });
     });
