@@ -35,6 +35,10 @@
   float: left;
   margin-right: 15px;
 }
+.tweets .img-container img {
+  width: 100%;
+  height: 100%;
+}
 .tweets .img-container .clownscore {
   padding: 5px;
   background: #DB7B7B;
