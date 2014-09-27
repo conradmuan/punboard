@@ -1,8 +1,6 @@
 var levelup = require('level-party');
 var _ = require('underscore');
-var db = levelup('./punsdb', {
-    valueEncoding: 'json'
-});
+var db = require('../lib/db')();
 var express = require('express');
 var router = express.Router();
 
