@@ -2,7 +2,7 @@ extends layout
 
 block content
   .container
-    h1 Punboard
+    h1 Punboard – We take puns very seriously.
     p Pellentesque eget tortor. Crackalackin erizzle. Bow wow wow at shut the shizzle up yo turpis tempizzle tempor. Yo crackalackin nibh et turpizzle. My shizz izzle tortor. Pellentesque eleifend rhoncizzle ass. In hizzle habitasse my shizz dictumst. Yo mamma dapibizzle. Fo shizzle my nizzle tellus urna, pretizzle get down get down, mattizzle pimpin', eleifend vitae, nunc. Da bomb suscipit. Integer semper velit sizzle yo mamma.
       each person in leaderboard
         .tweets
@@ -11,7 +11,7 @@ block content
             .img-container
               img.profile-img(src="#{img}", alt="#{person.author.screen_name}")
               .clownscore
-                span 33
+                span #{person.stats.clown}
             .pun-stats
               p puns: #{person.stats.puns}, groans: #{person.stats.groan}, trombones: #{person.stats.trombone}
     audio#faffel(src="assets/faffel.m4a")

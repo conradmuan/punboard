@@ -4,6 +4,22 @@ var db = require('../lib/db')();
 var express = require('express');
 var router = express.Router();
 
+var weights = {
+    'groan': 1,
+    'trombone': .5
+};
+
+function clownScore (stats, averager) {
+    var groanScore = stats.groan * weights.groan;
+    var tromboneScore = stats.trombone * weights.trombone;
+
+    if (tromboneScore > groanScore) return 1;
+
+    var score = ((groanScore - tromboneScore) / stats.puns) / averager;
+console.log(Math.ceil(score * 100))
+    return Math.ceil(score * 100);
+}
+
 function createLeaderBoard(callback) {
   var leaderboardLookup = {};
 
@@ -38,7 +54,12 @@ function createLeaderBoard(callback) {
 /* GET home page. */
 router.get('/', function(req, res) {
   createLeaderBoard(function(err, leaderboard){
-    console.dir(leaderboard);
+
+    leaderboard = leaderboard.map(function (person) {
+        person.stats.clown = clownScore(person.stats, leaderboard.length);
+        return person;
+    });
+
     res.render('index', {
         title: 'Express',
         leaderboard: leaderboard
