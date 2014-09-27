@@ -56,4 +56,37 @@
   .pun-stats {
     float: left;
   }
+  .pun {
+    position: absolute;
+     -webkit-transform: rotate(-20deg);
+     -moz-transform: rotate(-20deg);
+      -ms-transform: rotate(-20deg);
+       -o-transform: rotate(-20eg);
+  }
+}
+
+.pun-star {
+  display: block;
+  background: red;
+  width: 30px;
+  height: 30px;
+  position: relative;
+  text-align: center;
+  -webkit-transform: rotate(20deg);
+     -moz-transform: rotate(20deg);
+      -ms-transform: rotate(20deg);
+       -o-transform: rotate(20eg);
+}
+.pun-star:before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 30px;
+  width: 30px;
+  background: red;
+  -webkit-transform: rotate(135deg);
+     -moz-transform: rotate(135deg);
+      -ms-transform: rotate(135deg);
+       -o-transform: rotate(135deg);
 }

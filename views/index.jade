@@ -7,11 +7,14 @@ block content
       each person in leaderboard
         .tweets
           .tweet
-            - var img = person.author.profile_image_url.replace(/_normal.png/, '_bigger.png')
+            - var img = person.author.profile_image_url.replace(/_normal\./, '_bigger.')
             .img-container
               img.profile-img(src="#{img}", alt="#{person.author.screen_name}")
               .clownscore
                 span #{person.stats.clown}
             .pun-stats
-              p puns: #{person.stats.puns}, groans: #{person.stats.groan}, trombones: #{person.stats.trombone}
+              p 
+                span.pun-star
+                    span.pun puns: #{person.stats.puns}
+                | groans: #{person.stats.groan}, trombones: #{person.stats.trombone}
     audio#faffel(src="assets/faffel.m4a")
