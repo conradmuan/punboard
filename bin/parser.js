@@ -123,14 +123,14 @@ function parseTweet (tweet, callback) {
 // array of words you want to track
 var words = ["#comedyhackdaytest"];
 console.log('tracking: ', words.join(', '));
-// twit.stream('statuses/filter', { track: words.join(',') }, function(stream) {
-//     stream.on('data', function (data) {
-//         parseTweet(data, function (err, pun) {
-//             console.error(err);
-//             console.log('parsed: ', pun.tweet.id);
-//         });
-//     });
-// });
+twit.stream('statuses/filter', { track: words.join(',') }, function(stream) {
+    stream.on('data', function (data) {
+        parseTweet(data, function (err, pun) {
+            console.error(err);
+            console.log('parsed: ', pun.tweet.id_str);
+        });
+    });
+});
 
 // Easier testing
 twit.search(words.join(','), function(data) {
