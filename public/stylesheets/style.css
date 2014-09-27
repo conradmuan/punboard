@@ -12,8 +12,10 @@
 }
 body {
   background: #efefef;
+  color: #333;
+  text-shadow: #fff 1px 1px 1px;
 }
-.container {
+.container-fluid {
   max-width: 730px;
 }
 .tweets {
@@ -38,30 +40,17 @@ body {
   position: relative;
   width: 73px;
   height: 73px;
-  float: left;
   margin-right: 15px;
+  display: inline-block;
 }
 .tweets .img-container img {
   width: 100%;
   height: 100%;
 }
-.tweet {
-  zoom: 1;
-}
-.tweet:before,
-.tweet:after {
-  content: "";
-  display: table;
-}
-.tweet:after {
-  clear: both;
-}
 .pun-stats {
   zoom: 1;
   float: left;
   text-align: center;
-  color: #333;
-  text-shadow: #fff 1px 1px 1px;
 }
 .pun-stats:before,
 .pun-stats:after {
@@ -71,53 +60,53 @@ body {
 .pun-stats:after {
   clear: both;
 }
-.pun-stats .punner,
-.pun-stats .groans,
-.pun-stats .trombones {
+.punner,
+.groans,
+.trombones {
   text-align: center;
   padding: 0 10px;
   display: inline-block;
   margin-right: 20px;
 }
-.pun-stats .punner h1,
-.pun-stats .groans h1,
-.pun-stats .trombones h1 {
+.punner h1,
+.groans h1,
+.trombones h1 {
   font-size: 15px;
   margin: 0;
 }
-.pun-stats .punner h1 i,
-.pun-stats .groans h1 i,
-.pun-stats .trombones h1 i {
+.punner h1 i,
+.groans h1 i,
+.trombones h1 i {
   margin-left: 10px;
 }
-.pun-stats .groans span,
-.pun-stats .trombones span {
+.groans span,
+.trombones span {
   font-size: 45px;
 }
-.pun-stats .punner {
-  width: 200px;
+.punner {
+  max-width: 150px;
 }
-.pun-stats .punner h1 {
+.punner h1 {
   position: relative;
   font-size: 20px;
   text-align: left;
 }
-.pun-stats .punner .puns {
+.punner .puns {
   text-align: left;
 }
-.pun-stats .groans h1 {
+.groans h1 {
   color: #44BF87;
 }
-.pun-stats .groans span {
+.groans span {
   color: #44BF87;
 }
-.pun-stats .trombones {
+.trombones {
   margin-right: 0;
 }
-.pun-stats .trombones h1 {
+.trombones h1 {
   color: #A12915;
 }
-.pun-stats .trombones span {
+.trombones span {
   color: #A12915;
 }
 .leaderboard {
@@ -156,6 +145,7 @@ body {
   -ms-transition: all 100ms ease-in;
   -o-transition: all 100ms ease-in;
   transition: all 100ms ease-in;
+  text-shadow: none;
 }
 .pun-star:hover {
   -moz-transform: scale(1.1);
@@ -189,4 +179,14 @@ body {
   -moz-transform: rotate(135deg);
   -ms-transform: rotate(135deg);
   -o-transform: rotate(135deg);
+}
+@media (min-width: 768px) {
+  .punner {
+    max-width: none;
+    width: 200px;
+    margin-right: 20px;
+  }
+  .tweets .img-container {
+    top: -15px;
+  }
 }

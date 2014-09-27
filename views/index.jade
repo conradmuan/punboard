@@ -1,8 +1,8 @@
 extends layout
 
 block content
-  .container
-    h1 Punboard – We take puns very seriously.
+  .container-fluid
+    h1 The Punboard – We take puns very seriously.
 
     p The Punboard is a real-time leaderboard of who the top pun-makers are on Twitter. People get ranked up (punted) or down (punished) based on their Klown Score, which is like a Klout Score, but a lot more relevant.
 
@@ -27,20 +27,19 @@ block content
                 img.profile-img(src="#{img}", alt="#{person.author.screen_name}")
                 .pun-star.clownscore
                   span #{person.stats.clown}
-              .pun-stats
-                .punner 
-                  h1 @#{person.author.screen_name}
-                  .puns
-                    span Puns: #{person.stats.puns} &nbsp;
-                      a(href="#") (view puns)
-                .groans
-                  span #{person.stats.groan}
-                  h1 #groan
-                    i.fa.fa-thumbs-o-up
-                .trombones
-                  span #{person.stats.trombone}
-                  h1 #sadtrombone
-                    i.fa.fa-thumbs-o-down
+              .punner 
+                h1 @#{person.author.screen_name}
+                .puns
+                  span Puns: #{person.stats.puns} &nbsp;
+                    a(href="#") (view puns)
+              .groans
+                span #{person.stats.groan}
+                h1 #groan
+                  i.fa.fa-thumbs-o-up
+              .trombones
+                span #{person.stats.trombone}
+                h1 #sadtrombone
+                  i.fa.fa-thumbs-o-down
   audio#faffel(src="assets/faffel.m4a")
   #tweet-modal.modal.fade(tabindex="-1", role="dialog", aria-labelledby="tweetDialogLabel", aria-hidden="true")
     .modal-dialog
