@@ -16,7 +16,7 @@ function clownScore (stats, averager) {
     if (tromboneScore > groanScore) return 1;
 
     var score = ((groanScore - tromboneScore) / stats.puns) / averager;
-console.log(Math.ceil(score * 100))
+
     return Math.ceil(score * 100);
 }
 
@@ -59,6 +59,10 @@ router.get('/', function(req, res) {
         person.stats.clown = clownScore(person.stats, leaderboard.length);
         return person;
     });
+
+    leaderboard = _.sortBy(leaderboard, function (person) {
+        return person.stats.clown;
+    }).reverse();
 
     res.render('index', {
         title: 'Express',
