@@ -1,1 +1,1 @@
-parser: node srv/parser.js
+parser: node bin/parser.js

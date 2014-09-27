@@ -100,29 +100,36 @@ function parseTweet (tweet, callback) {
             pun.stats = calcHashtags(pun.stats, tags);
             pun.votes.push(tweet);
 
-            console.dir(pun);
+            punsDb.put(pun.tweet.id_str, pun, function (err) {
+                if (err) return callback(err);
 
-            punsDb.put(pun.tweet.id_str, pun, callback);
+                callback(null, pun);
+            });
         }]
-    }, callback);
+    }, function (err, results) {
+        if (err) return callback(err);
+
+        callback(null, results.calculate);
+    });
 }
 
 // array of words you want to track
 var words = ["#comedyhackdaytest"];
 console.log('tracking: ', words.join(', '));
 twit.stream('statuses/filter', { track: words.join(',') }, function(stream) {
-    stream.on('data', function(data) {
-        console.log(data);
-        console.log('IN: ', data);
-        // parseTweet(data);
+    stream.on('data', function (data) {
+        parseTweet(data, function (err, pun) {
+            console.error(err);
+            console.log('parsed: ', pun.tweet.id);
+        });
     });
 });
 
 // Easier testing
 // twit.search(words.join(','), function(data) {
 //     // console.log('IN: ', data.statuses[0]);
-//     parseTweet(data.statuses[0], function (err, results) {
+//     parseTweet(data.statuses[0], function (err, pun) {
 //         if (err) console.error(err);
-//         console.log('Parsed Tweet');
+//         console.log('parsed: ', pun.tweet.id);
 //     });
 // });
