@@ -46,6 +46,9 @@ function fetchOrCreatePun (punId, callback) {
         if (typeof pun !== 'undefined') return callback(null, pun);
 
         fetchPunTweet(punId, function (err, pun) {
+            // console.dir(pun);
+            // console.dir('ID: ' + punId);
+            // console.dir('tweet ID: ' + pun.id_str);
             createPun(punId, pun, function (err) {
                 if (!err) return punsDb.get(punId, callback);
             });
@@ -82,6 +85,8 @@ function hasVote (hashtags) {
  * Handles creating and incrementing pun stats.
  */
 function parseTweet (tweet, callback) {
+    // console.dir(tweet);
+    // console.dir('===========');
     var punId = tweet.in_reply_to_status_id_str;
 
     if (punId === null) return callback('Not a reply');
@@ -103,12 +108,14 @@ function parseTweet (tweet, callback) {
             punsDb.put(pun.tweet.id_str, pun, function (err) {
                 if (err) return callback(err);
 
+                // Successful end to `async.auto` flow
                 callback(null, pun);
             });
         }]
     }, function (err, results) {
         if (err) return callback(err);
 
+        // callback passed in to `parseTweet` call
         callback(null, results.calculate);
     });
 }
@@ -116,20 +123,27 @@ function parseTweet (tweet, callback) {
 // array of words you want to track
 var words = ["#comedyhackdaytest"];
 console.log('tracking: ', words.join(', '));
-twit.stream('statuses/filter', { track: words.join(',') }, function(stream) {
-    stream.on('data', function (data) {
-        parseTweet(data, function (err, pun) {
-            console.error(err);
-            console.log('parsed: ', pun.tweet.id);
-        });
-    });
-});
-
-// Easier testing
-// twit.search(words.join(','), function(data) {
-//     // console.log('IN: ', data.statuses[0]);
-//     parseTweet(data.statuses[0], function (err, pun) {
-//         if (err) console.error(err);
-//         console.log('parsed: ', pun.tweet.id);
+// twit.stream('statuses/filter', { track: words.join(',') }, function(stream) {
+//     stream.on('data', function (data) {
+//         parseTweet(data, function (err, pun) {
+//             console.error(err);
+//             console.log('parsed: ', pun.tweet.id);
+//         });
 //     });
 // });
+
+// Easier testing
+twit.search(words.join(','), function(data) {
+    // console.log('IN: ', data.statuses[0]);
+    parseTweet(data.statuses[0], function (err, pun) {
+        if (err) console.error(err);
+        console.log('parsed: ' + pun.tweet.id_str);
+
+        // DEBUG
+        // punsDb.createReadStream().on('data', function (data) { console.log(data); });
+        // punsDb.get(pun.tweet.id_str, function (err, obj) {
+        //     console.dir(err);
+        //     console.dir(obj);
+        // });
+    });
+});

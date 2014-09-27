@@ -24,7 +24,7 @@
     "twitter": "^0.2.12",
     "underscore": "^1.7.0",
     "async": "^0.9.0",
-    "level-party": "^1.0.1"
+    "redisdown": "^0.1.4"
   },
   "keywords": [
     "puns",
