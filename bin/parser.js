@@ -133,17 +133,17 @@ twit.stream('statuses/filter', { track: words.join(',') }, function(stream) {
 });
 
 // Easier testing
-twit.search(words.join(','), function(data) {
-    // console.log('IN: ', data.statuses[0]);
-    parseTweet(data.statuses[0], function (err, pun) {
-        if (err) console.error(err);
-        console.log('parsed: ' + pun.tweet.id_str);
-
-        // DEBUG
-        // punsDb.createReadStream().on('data', function (data) { console.log(data); });
-        // punsDb.get(pun.tweet.id_str, function (err, obj) {
-        //     console.dir(err);
-        //     console.dir(obj);
-        // });
-    });
-});
+// twit.search(words.join(','), function(data) {
+//     // console.log('IN: ', data.statuses[0]);
+//     parseTweet(data.statuses[0], function (err, pun) {
+//         if (err) console.error(err);
+//         console.log('parsed: ' + pun.tweet.id_str);
+//
+//         // DEBUG
+//         // punsDb.createReadStream().on('data', function (data) { console.log(data); });
+//         // punsDb.get(pun.tweet.id_str, function (err, obj) {
+//         //     console.dir(err);
+//         //     console.dir(obj);
+//         // });
+//     });
+// });
