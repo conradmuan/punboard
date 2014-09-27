@@ -1,0 +1,23 @@
+{
+  "name": "punboard",
+  "version": "1.0.0",
+  "description": "Pun leaderboard for twitter",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/conradmuan/punboard.git"
+  },
+  "keywords": [
+    "puns",
+    "twitter"
+  ],
+  "author": "",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/conradmuan/punboard/issues"
+  },
+  "homepage": "https://github.com/conradmuan/punboard"
+}
