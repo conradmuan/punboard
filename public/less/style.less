@@ -1,0 +1,52 @@
+@import 'mixins.less';
+
+.container {
+  width: 730px;
+}
+
+.tweets {
+  .clearfix;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  padding: 10px;
+  margin-bottom: 15px;
+  .img-container {
+    position: relative;
+    width: 73px;
+    height: 73px;
+    float: left;
+    margin-right: 15px;
+    .clownscore {
+      padding: 5px;
+      background: #DB7B7B; /* Old browsers */
+      background: -moz-linear-gradient(45deg,  #DB7B7B 0%, #992020 100%); /* FF3.6+ */
+      background: -webkit-gradient(linear, left bottom, right top, color-stop(0%,#DB7B7B), color-stop(100%,#992020)); /* Chrome,Safari4+ */
+      background: -webkit-linear-gradient(45deg,  #DB7B7B 0%,#992020 100%); /* Chrome10+,Safari5.1+ */
+      background: -o-linear-gradient(45deg,  #DB7B7B 0%,#992020 100%); /* Opera 11.10+ */
+      background: -ms-linear-gradient(45deg,  #DB7B7B 0%,#992020 100%); /* IE10+ */
+      background: linear-gradient(45deg,  #DB7B7B 0%,#992020 100%); /* W3C */
+      filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#DB7B7B', endColorstr='#992020',GradientType=1 ); /* IE6-9 fallback on horizontal gradient */
+      position: absolute;
+      bottom: -5px;
+      right: -5px;
+      border: 1px solid #fff;
+      color: #fff;
+      border-radius: 50% 50%;
+      -webkit-transition: all 100ms ease-in;
+      -moz-transition: all 100ms ease-in;
+      -ms-transition: all 100ms ease-in;
+      -o-transition: all 100ms ease-in;
+      transition: all 100ms ease-in;
+      &:hover {
+        -moz-transform: scale(1.1);
+        -webkit-transform: scale(1.1);
+        -o-transform: scale(1.1);
+        -ms-transform: scale(1.1);
+        transform: scale(1.1);
+      }
+    }
+  }
+  .pun-stats {
+    float: left;
+  }
+}

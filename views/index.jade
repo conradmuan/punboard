@@ -1,8 +1,17 @@
 extends layout
 
 block content
-  h1= title
-  p Welcome to #{title}
-
-  each person in leaderboard
-    p #{person.author.id}
+  .container
+    h1 Punboard
+    p Pellentesque eget tortor. Crackalackin erizzle. Bow wow wow at shut the shizzle up yo turpis tempizzle tempor. Yo crackalackin nibh et turpizzle. My shizz izzle tortor. Pellentesque eleifend rhoncizzle ass. In hizzle habitasse my shizz dictumst. Yo mamma dapibizzle. Fo shizzle my nizzle tellus urna, pretizzle get down get down, mattizzle pimpin', eleifend vitae, nunc. Da bomb suscipit. Integer semper velit sizzle yo mamma.
+      each person in leaderboard
+        .tweets
+          .tweet
+            - var img = person.author.profile_image_url.replace(/_normal.png/, '_bigger.png')
+            .img-container
+              img.profile-img(src="#{img}", alt="#{person.author.screen_name}")
+              .clownscore
+                span 33
+            .pun-stats
+              p puns: #{person.stats.puns}, groans: #{person.stats.groan}, trombones: #{person.stats.trombone}
+    audio#faffel(src="assets/faffel.m4a")
