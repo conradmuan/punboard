@@ -121,7 +121,7 @@ function parseTweet (tweet, callback) {
 }
 
 // array of words you want to track
-var words = ["#comedyhackdaytest"];
+var words = ["#punboard"];
 console.log('tracking: ', words.join(', '));
 twit.stream('statuses/filter', { track: words.join(',') }, function(stream) {
     stream.on('data', function (data) {
