@@ -20,7 +20,7 @@ body {
   zoom: 1;
   border-bottom: 1px solid #ccc;
   padding: 10px;
-  margin-bottom: 15px;
+  margin-bottom: 20px;
 }
 .tweets:before,
 .tweets:after {
@@ -29,6 +29,10 @@ body {
 }
 .tweets:after {
   clear: both;
+}
+.tweets.gold {
+  background: rgba(236, 219, 68, 0.2);
+  margin-bottom: 20px;
 }
 .tweets .img-container {
   position: relative;
@@ -68,7 +72,6 @@ body {
   clear: both;
 }
 .pun-stats .punner,
-.pun-stats .puns,
 .pun-stats .groans,
 .pun-stats .trombones {
   text-align: center;
@@ -77,14 +80,16 @@ body {
   margin-right: 20px;
 }
 .pun-stats .punner h1,
-.pun-stats .puns h1,
 .pun-stats .groans h1,
 .pun-stats .trombones h1 {
   font-size: 15px;
   margin: 0;
 }
-.pun-stats .punner span,
-.pun-stats .puns span,
+.pun-stats .punner h1 i,
+.pun-stats .groans h1 i,
+.pun-stats .trombones h1 i {
+  margin-left: 10px;
+}
 .pun-stats .groans span,
 .pun-stats .trombones span {
   font-size: 45px;
@@ -94,8 +99,10 @@ body {
 }
 .pun-stats .punner h1 {
   position: relative;
-  top: -35px;
   font-size: 20px;
+  text-align: left;
+}
+.pun-stats .punner .puns {
   text-align: left;
 }
 .pun-stats .groans h1 {
@@ -112,6 +119,24 @@ body {
 }
 .pun-stats .trombones span {
   color: #A12915;
+}
+.leaderboard {
+  position: relative;
+  margin-top: 15px;
+}
+.leaderboard .number-one {
+  position: absolute;
+  -webkit-transform: rotate(-10deg);
+  -moz-transform: rotate(-10deg);
+  -ms-transform: rotate(-10deg);
+  -o-transform: rotate(-10eg);
+  top: -25px;
+  z-index: 100;
+}
+.leaderboard .number-one h1 {
+  font-size: 15px;
+  color: #A12915;
+  text-shadow: #fff 1px 1px 1px;
 }
 .pun-star {
   display: block;

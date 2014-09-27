@@ -4,24 +4,34 @@ block content
   .container
     h1 Punboard – We take puns very seriously.
     p Pellentesque eget tortor. Crackalackin erizzle. Bow wow wow at shut the shizzle up yo turpis tempizzle tempor. Yo crackalackin nibh et turpizzle. My shizz izzle tortor. Pellentesque eleifend rhoncizzle ass. In hizzle habitasse my shizz dictumst. Yo mamma dapibizzle. Fo shizzle my nizzle tellus urna, pretizzle get down get down, mattizzle pimpin', eleifend vitae, nunc. Da bomb suscipit. Integer semper velit sizzle yo mamma.
-      each person in leaderboard
-        .tweets
-          .tweet
-            - var img = person.author.profile_image_url.replace(/_normal\./, '_bigger.')
-            .img-container
-              img.profile-img(src="#{img}", alt="#{person.author.screen_name}")
-              .pun-star.clownscore
-                span #{person.stats.clown}
-            .pun-stats
-              .punner 
-                h1 @#{person.author.screen_name}:
-              .puns
-                span #{person.stats.puns}
-                h1 puns
-              .groans
-                span #{person.stats.groan}
-                h1 #groan
-              .trombones
-                span #{person.stats.trombone}
-                h1 #sadtrombone
+
+      .leaderboard
+        each person, l in leaderboard
+          - var klass = (l === 0 ? 'tweets gold' : 'tweets')
+
+          if (l === 0)
+            .number-one
+              h1 Number One Punner!
+
+          div(class=klass)
+            .tweet
+              - var img = person.author.profile_image_url.replace(/_normal\./, '_bigger.')
+              .img-container
+                img.profile-img(src="#{img}", alt="#{person.author.screen_name}")
+                .pun-star.clownscore
+                  span #{person.stats.clown}
+              .pun-stats
+                .punner 
+                  h1 @#{person.author.screen_name}
+                  .puns
+                    span Puns: #{person.stats.puns} &nbsp;
+                      //- a(href="#") (view puns)
+                .groans
+                  span #{person.stats.groan}
+                  h1 #groan
+                    i.fa.fa-thumbs-o-up
+                .trombones
+                  span #{person.stats.trombone}
+                  h1 #sadtrombone
+                    i.fa.fa-thumbs-o-down
   audio#faffel(src="assets/faffel.m4a")
