@@ -81,6 +81,12 @@ function hasVote (hashtags) {
     });
 }
 
+function alreadyVoted (id, votes) {
+    return _.some(votes, function (vote) {
+        return (vote.user.id_str === id);
+    });
+}
+
 /**
  * Handles creating and incrementing pun stats.
  */
@@ -100,7 +106,15 @@ function parseTweet (tweet, callback) {
             var pun = obj.fetch;
             var tags = tweet.entities.hashtags;
 
+            // Filter
             if (!hasVote(tags)) return callback('No votes');
+            if (alreadyVoted(tweet.user.id_str, pun.votes)) {
+                return callback(
+                    tweet.user.screen_name +
+                    ' Already voted on ' +
+                    pun.tweet.id_str
+                );
+            }
 
             pun.stats = calcHashtags(pun.stats, tags);
             pun.votes.push(tweet);
