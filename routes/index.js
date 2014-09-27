@@ -9,15 +9,47 @@ var weights = {
     'trombone': .5
 };
 
-function clownScore (stats, averager) {
+function baseClownScore (stats) {
     var groanScore = stats.groan * weights.groan;
     var tromboneScore = stats.trombone * weights.trombone;
 
-    if (tromboneScore > groanScore) return 1;
+    return (groanScore + tromboneScore);
 
-    var score = ((groanScore - tromboneScore) / stats.puns) / averager;
+    // var score = ((groanScore - tromboneScore) / stats.puns) / averager;
+    //
+    // return Math.ceil(score * 100);
+}
 
-    return Math.ceil(score * 100);
+function mapClownScores (leaderboard) {
+    leaderboard = leaderboard.map(function (person) {
+        person.stats.clown = baseClownScore(person.stats);
+        return person;
+    });
+
+    var numerator = leaderboard.reduce(function (memo, person) {
+        return (memo + person.stats.clown);
+    }, 0);
+
+    var denominator = leaderboard.reduce(function (memo, person) {
+        return (memo + person.stats.puns);
+    }, 0);
+
+    leaderboard = leaderboard.map(function (person) {
+        var voteScore = (person.stats.clown / numerator);
+        var punScore = (person.stats.puns / denominator);
+        var total = (voteScore + punScore);
+        var clown = Math.floor(total * 100);
+
+        person.stats.clown = clown;
+        return person;
+    });
+
+
+    leaderboard = _.sortBy(leaderboard, function (person) {
+        return person.stats.clown;
+    }).reverse();
+
+    return leaderboard;
 }
 
 function createLeaderBoard(callback) {
@@ -55,14 +87,7 @@ function createLeaderBoard(callback) {
 router.get('/', function(req, res) {
   createLeaderBoard(function(err, leaderboard){
 
-    leaderboard = leaderboard.map(function (person) {
-        person.stats.clown = clownScore(person.stats, leaderboard.length);
-        return person;
-    });
-
-    leaderboard = _.sortBy(leaderboard, function (person) {
-        return person.stats.clown;
-    }).reverse();
+    leaderboard = mapClownScores(leaderboard);
 
     res.render('index', {
         title: 'Express',
