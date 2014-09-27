@@ -4,7 +4,7 @@ var _ = require('underscore');
 var punsDb = require('../lib/db')();
 
 var GROAN = 'groan';
-var TROMBONE = 'trombone';
+var TROMBONE = 'sadtrombone';
 
 var voteTags = [GROAN, TROMBONE];
 
