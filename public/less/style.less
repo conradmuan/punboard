@@ -2,9 +2,11 @@
 
 body {
   background: #efefef;
+  color: #333;
+  text-shadow: #fff 1px 1px 1px;
 }
 
-.container {
+.container-fluid {
   max-width: 730px;
 }
 
@@ -22,8 +24,9 @@ body {
     position: relative;
     width: 73px;
     height: 73px;
-    float: left;
+    // float: left;
     margin-right: 15px;
+    display: inline-block;
     img {
       width: 100%;
       height: 100%;
@@ -32,7 +35,7 @@ body {
 }
 
 .tweet {
-  .clearfix;
+  // .clearfix;
 }
 
 .pun-stats {
@@ -41,54 +44,55 @@ body {
   // padding: 0 20px;
   // width: 590px;
   text-align: center;
-  color: #333;
-  text-shadow: #fff 1px 1px 1px;
-  .punner, .groans, .trombones {
-    h1 {
-      font-size: 15px;
-      margin: 0;
-      i {
-        margin-left: 10px;
-      }
-    }
-    text-align: center;
-    padding: 0 10px;
-    display: inline-block;
-    margin-right: 20px;
-  }
-  .groans, .trombones {
-    span {
-      font-size: 45px;
+
+
+}
+.punner, .groans, .trombones {
+  h1 {
+    font-size: 15px;
+    margin: 0;
+    i {
+      margin-left: 10px;
     }
   }
-  .punner {
-    h1 {
-      position: relative;
-      font-size: 20px;
-      text-align: left;
-    }
-    .puns {
-      text-align: left;
-    }
-    width: 200px;
+  text-align: center;
+  padding: 0 10px;
+  display: inline-block;
+  margin-right: 20px;
+}
+.groans, .trombones {
+  span {
+    font-size: 45px;
   }
-  .groans {
-    h1 {
-      color: #44BF87;
-    }
-    span {
-      color: #44BF87;
-    }
+}
+.punner {
+  h1 {
+    position: relative;
+    font-size: 20px;
+    text-align: left;
   }
-  .trombones {
-    h1 {
-      color: #A12915;
-    }
-    span {
-      color: #A12915;
-    }
-    margin-right: 0;
+  .puns {
+    text-align: left;
   }
+  // width: 200px;
+  max-width: 150px;
+}
+.groans {
+  h1 {
+    color: #44BF87;
+  }
+  span {
+    color: #44BF87;
+  }
+}
+.trombones {
+  h1 {
+    color: #A12915;
+  }
+  span {
+    color: #A12915;
+  }
+  margin-right: 0;
 }
 
 .leaderboard {
@@ -128,6 +132,7 @@ body {
   -ms-transition: all 100ms ease-in;
   -o-transition: all 100ms ease-in;
   transition: all 100ms ease-in;
+  text-shadow: none;
   &:hover {
     -moz-transform: scale(1.1);
     -webkit-transform: scale(1.1);
@@ -161,4 +166,17 @@ body {
      -moz-transform: rotate(135deg);
       -ms-transform: rotate(135deg);
        -o-transform: rotate(135deg);
+}
+
+@media (min-width: 768px){
+  .punner {
+    max-width: none;
+    width: 200px;
+    margin-right: 20px;
+  }
+  .tweets {
+    .img-container {
+      top: -15px;
+    }
+  }
 }
