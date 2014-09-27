@@ -18,7 +18,7 @@ block content
 
           if (l === 0)
             .number-one
-              h1 Number One Punner!
+              h1 Numbah One Punnah!
 
           div(class=klass)
             .tweet
@@ -32,7 +32,7 @@ block content
                   h1 @#{person.author.screen_name}
                   .puns
                     span Puns: #{person.stats.puns} &nbsp;
-                      //- a(href="#") (view puns)
+                      a(href="#") (view puns)
                 .groans
                   span #{person.stats.groan}
                   h1 #groan
@@ -42,3 +42,14 @@ block content
                   h1 #sadtrombone
                     i.fa.fa-thumbs-o-down
   audio#faffel(src="assets/faffel.m4a")
+  #tweet-modal.modal.fade(tabindex="-1", role="dialog", aria-labelledby="tweetDialogLabel", aria-hidden="true")
+    .modal-dialog
+      .modal-content
+        .modal-header
+          button.close(type="button", data-dismiss="modal")
+            span(aria-hidden="true")&times;
+            span.sr-only Close
+          h4#tweetDialogLabel.modal-title Puns
+        .modal-body ...
+        .modal-footer
+          button.btn.btn-default(type="button", data-dismiss="modal") Close
