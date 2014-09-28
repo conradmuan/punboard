@@ -31,23 +31,27 @@
     }
   }
 
-  var tweetHTML;
-
-  $('.open-modal').on('click', function(e){
-    e.preventDefault();
-    tweetHTML = $(this).parents('.tweet').find('.tweet-text').clone();
-    $('#tweet-modal').modal('show');
-  });
-
-  $('#tweet-modal').on('show.bs.modal', function(e){
-    $(this).find('.modal-body').append(tweetHTML);
-  });
-
-  $('#tweet-modal').on('hide.bs.modal', function(e){
-    $(this).find('.modal-body').empty();
-  });
-
   // events
+  $('.open-tweets').on('click', function(e){
+    e.preventDefault();
+    var tweets = $(this).parents('.tweet').attr('data-tweets').split(',');
+    var that = this;
+    tweets.pop();
+    $(tweets).each(function(t, tweet){
+      $.post('/tweets', { id: tweet }, function(data){
+        var render = JSON.parse(data);
+        $(that).parents('.tweet').find('.tweet-text').append(render.html);
+      });
+    });
+    $(that).parents('.tweet').find('.close-tweet-text').show();
+  });
+
+  $('.close-it').on('click', function(e){
+    e.preventDefault();
+    $(this).parents('.close-tweet-text').hide();
+    $(this).parents('.tweet').find('.tweet-text').empty();
+  });
+
   $('.clownscore').hover(function(){
     playFaffel();
   });

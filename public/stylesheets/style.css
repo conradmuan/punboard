@@ -191,11 +191,15 @@ body {
   -ms-transform: rotate(135deg);
   -o-transform: rotate(135deg);
 }
-.tweet-text {
-  display: none;
-}
 #tweet-modal .tweet-text {
   display: block;
+}
+.close-tweet-text {
+  display: none;
+  text-align: center;
+}
+.close-tweet-text .close-it {
+  font-size: 20px;
 }
 @keyframes ugh {
   0% {
