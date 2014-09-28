@@ -34,3 +34,5 @@ node_modules/*
 
 # Database
 punsdb/*
+
+.DS_Store
