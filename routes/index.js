@@ -18,9 +18,9 @@ function baseClownScore (stats) {
 
 function mapClownScores (leaderboard) {
     leaderboard = leaderboard.map(function (person) {
-        if (person.author.screen_name === 'conradmuan') {
-            person.stats.groan = 100;
-        }
+        // if (person.author.screen_name === 'conradmuan') {
+        //     person.stats.groan = 100;
+        // }
         person.stats.clown = baseClownScore(person.stats);
         return person;
     });

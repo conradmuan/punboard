@@ -2,9 +2,14 @@ extends layout
 
 block content
   .container-fluid
-    h1 The Punboard – We take puns very seriously.
 
-    p The Punboard is populated when someone replies to a pun they see on Twitter and tweet back with #punboard and #groan (which is good, like a groan of approval) or #sadtrombone (which is a vote of "come on now, you can do better than that").
+    h1
+        svg(width="700px", height="145px", version="1.1", xmlns="http://www.w3.org/2000/svg", xmlns:xlink="http://www.w3.org/1999/xlink")
+            image(xlink:href="/assets/logo.svg", x="0", y="0", width="700px", height="145px")
+
+        p.tagline We take puns very seriously.
+
+    p.description The Punboard is populated when someone replies to a pun they see on Twitter and tweet back with #punboard and #groan (which is good, like a groan of approval) or #sadtrombone (which is a vote of "come on now, you can do better than that").
 
       .leaderboard
         each person, l in leaderboard
@@ -20,7 +25,7 @@ block content
                 img.profile-img(src="#{img}", alt="#{person.author.screen_name}")
                 .pun-star.clownscore
                   span #{person.stats.clown}
-              .punner 
+              .punner
                 h1 @#{person.author.screen_name}
                 .puns
                   span Puns: #{person.stats.puns} &nbsp;
