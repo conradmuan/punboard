@@ -14,7 +14,7 @@ router.post('/', bodyparser.json(), function(req, res){
   
   var id = req.body.id;
   
-  options.path = '/1/statuses/oembed.json?id='+id+'&align=center&omit_script=true';
+  options.path = '/1/statuses/oembed.json?id='+id+'&align=center';
   
   var tweet = https.request(options, function(response){
     response.on('data', function(data){
