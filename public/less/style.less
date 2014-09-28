@@ -84,6 +84,13 @@ body {
   span {
     color: #44BF87;
   }
+  &.spin {
+    span {
+      animation: ugh 2.5s linear 0s 1;
+      -webkit-animation: ugh 2.5s linear 0s 1;
+      -moz-animation: ugh 2.5s linear 0s 1;
+    }
+  }
 }
 .trombones {
   h1 {
@@ -91,6 +98,14 @@ body {
   }
   span {
     color: #A12915;
+    display: block;
+  }
+  &.stretch {
+    span {
+      animation: trombone 4s linear 0s 1;
+      -webkit-animation: trombone 4s linear 0s 1;
+      -moz-animation: trombone 4s linear 0s 1;
+    }
   }
   margin-right: 0;
 }
@@ -103,7 +118,7 @@ body {
     -webkit-transform: rotate(-10deg);
          -moz-transform: rotate(-10deg);
           -ms-transform: rotate(-10deg);
-           -o-transform: rotate(-10eg);
+           -o-transform: rotate(-10deg);
     top: -25px;
     z-index: 100;
     h1 {
@@ -126,7 +141,7 @@ body {
   -webkit-transform: rotate(20deg);
      -moz-transform: rotate(20deg);
       -ms-transform: rotate(20deg);
-       -o-transform: rotate(20eg);
+       -o-transform: rotate(20deg);
   -webkit-transition: all 100ms ease-in;
   -moz-transition: all 100ms ease-in;
   -ms-transition: all 100ms ease-in;
@@ -151,7 +166,7 @@ body {
     -webkit-transform: rotate(-20deg);
        -moz-transform: rotate(-20deg);
         -ms-transform: rotate(-20deg);
-         -o-transform: rotate(-20eg);
+         -o-transform: rotate(-20deg);
   }
 }
 .pun-star:before {
@@ -177,6 +192,145 @@ body {
     display: block;
   }
 }
+
+@keyframes ugh {
+  0%{
+    transform: rotate(0deg);
+    -webkit-transform: rotate(0deg);
+    -moz-transform: rotate(0deg);
+  }
+  50%{
+    transform: rotate(-45deg);
+    -webkit-transform: rotate(-45deg);
+    -moz-transform: rotate(-45deg);
+  }
+  100%{
+    transform: skew(0deg);
+    -webkit-transform: skew(0deg);
+    -moz-transform: skew(0deg);
+  }
+}
+
+@-moz-keyframes ugh {
+  0%{
+    transform: rotate(0deg);
+    -webkit-transform: rotate(0deg);
+    -moz-transform: rotate(0deg);
+  }
+  50%{
+    transform: rotate(-45deg);
+    -webkit-transform: rotate(-45deg);
+    -moz-transform: rotate(-45deg);
+  }
+  100%{
+    transform: skew(0deg);
+    -webkit-transform: skew(0deg);
+    -moz-transform: skew(0deg);
+  }
+}
+
+@-webkit-keyframes ugh {
+  0%{
+    transform: rotate(0deg);
+    -webkit-transform: rotate(0deg);
+    -moz-transform: rotate(0deg);
+  }
+  50%{
+    transform: rotate(-45deg);
+    -webkit-transform: rotate(-45deg);
+    -moz-transform: rotate(-45deg);
+  }
+  100%{
+    transform: skew(0deg);
+    -webkit-transform: skew(0deg);
+    -moz-transform: skew(0deg);
+  }
+}
+
+@keyframes trombone {
+  0%{
+    transform: skew(0deg);
+    -webkit-transform: skew(0deg);
+    -moz-transform: skew(0deg);
+  }
+  25%{
+    transform: skew(45deg);
+    -webkit-transform: skew(45deg);
+    -moz-transform: skew(45deg);
+  }
+  50%{
+    transform: skew(-45deg);
+    -webkit-transform: skew(-45deg);
+    -moz-transform: skew(-45deg);
+  }
+  75%{
+    transform: skew(25deg);
+    -webkit-transform: skew(25deg);
+    -moz-transform: skew(25deg);
+  }
+  100%{
+    transform: skew(0deg);
+    -webkit-transform: skew(0deg);
+    -moz-transform: skew(0deg);
+  }
+}
+
+@-moz-keyframes trombone {
+  0%{
+    transform: skew(0deg);
+    -webkit-transform: skew(0deg);
+    -moz-transform: skew(0deg);
+  }
+  25%{
+    transform: skew(45deg);
+    -webkit-transform: skew(45deg);
+    -moz-transform: skew(45deg);
+  }
+  50%{
+    transform: skew(-45deg);
+    -webkit-transform: skew(-45deg);
+    -moz-transform: skew(-45deg);
+  }
+  75%{
+    transform: skew(25deg);
+    -webkit-transform: skew(25deg);
+    -moz-transform: skew(25deg);
+  }
+  100%{
+    transform: skew(0deg);
+    -webkit-transform: skew(0deg);
+    -moz-transform: skew(0deg);
+  }
+}
+
+@-webkit-keyframes trombone {
+  0%{
+    transform: skew(0deg);
+    -webkit-transform: skew(0deg);
+    -moz-transform: skew(0deg);
+  }
+  25%{
+    transform: skew(45deg);
+    -webkit-transform: skew(45deg);
+    -moz-transform: skew(45deg);
+  }
+  50%{
+    transform: skew(-45deg);
+    -webkit-transform: skew(-45deg);
+    -moz-transform: skew(-45deg);
+  }
+  75%{
+    transform: skew(25deg);
+    -webkit-transform: skew(25deg);
+    -moz-transform: skew(25deg);
+  }
+  100%{
+    transform: skew(0deg);
+    -webkit-transform: skew(0deg);
+    -moz-transform: skew(0deg);
+  }
+}
+
 
 @media (min-width: 768px){
   .punner {
