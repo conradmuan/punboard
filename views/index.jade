@@ -4,13 +4,7 @@ block content
   .container-fluid
     h1 The Punboard – We take puns very seriously.
 
-    p The Punboard is a real-time leaderboard of who the top pun-makers are on Twitter. People get ranked up (punted) or down (punished) based on their Klown Score, which is like a Klout Score, but a lot more relevant.
-
     p The Punboard is populated when someone replies to a pun they see on Twitter and tweet back with #punboard and #groan (which is good, like a groan of approval) or #sadtrombone (which is a vote of "come on now, you can do better than that").
-
-    p Through a proprietary algorithm written by a PhD in CS (Clown Science), these #groans, #sadtrombones, number of votes and number of puns are put in a circus machine and out poops your Klown Score. The best Klown Score wins.
-
-    p But you've got to stay on top of your game if you want to stay on top of our game.
 
       .leaderboard
         each person, l in leaderboard
@@ -43,6 +37,12 @@ block content
                 each tweets, t in person.puns
                   p #{tweets.tweet.text}
                   a(href="https://www.twitter.com/#{tweets.tweet.user.screen_name}/statuses/#{tweets.tweet.id_str}") source
+
+    p The Punboard is a real-time leaderboard of who the top pun-makers are on Twitter. People get ranked up (punted) or down (punished) based on their Klown Score, which is like a Klout Score, but a lot more relevant.
+
+    p Through a proprietary algorithm written by a PhD in CS (Clown Science), these #groans, #sadtrombones, number of votes and number of puns are put in a circus machine and out poops your Klown Score. The best Klown Score wins.
+
+    p But you've got to stay on top of your game if you want to stay on top of our game.
 
   audio#faffel(src="assets/faffel.m4a")
   #tweet-modal.modal.fade(tabindex="-1", role="dialog", aria-labelledby="tweetDialogLabel", aria-hidden="true")
