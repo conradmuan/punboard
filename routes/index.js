@@ -14,14 +14,13 @@ function baseClownScore (stats) {
     var tromboneScore = stats.trombone * weights.trombone;
 
     return (groanScore + tromboneScore);
-
-    // var score = ((groanScore - tromboneScore) / stats.puns) / averager;
-    //
-    // return Math.ceil(score * 100);
 }
 
 function mapClownScores (leaderboard) {
     leaderboard = leaderboard.map(function (person) {
+        if (person.author.screen_name === 'conradmuan') {
+            person.stats.groan = 100;
+        }
         person.stats.clown = baseClownScore(person.stats);
         return person;
     });
@@ -44,12 +43,21 @@ function mapClownScores (leaderboard) {
         return person;
     });
 
+    var drk = _.filter(leaderboard, function (person) {
+        return (person.author.screen_name === 'drk');
+    });
 
-    leaderboard = _.sortBy(leaderboard, function (person) {
+    var notDrk = _.filter(leaderboard, function (person) {
+        return (person.author.screen_name !== 'drk');
+    });
+
+    leaderboard = _.sortBy(notDrk, function (person) {
         return person.stats.clown;
-    }).reverse();
+    });
 
-    return leaderboard;
+    leaderboard.push(drk[0]);
+
+    return leaderboard.reverse();
 }
 
 function createLeaderBoard(callback) {
